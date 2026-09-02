@@ -1,0 +1,17 @@
+{
+  "short_name": "ZenTime",
+  "name": "ZenTime — Productivity Operating System",
+  "description": "Turn your tasks, calendar and focus sessions into a clear execution plan.",
+  "icons": [
+    {
+      "src": "zentime-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0e1a33",
+  "background_color": "#0a1524"
+}
