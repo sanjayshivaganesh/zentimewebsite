@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, MonitorDown, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import usePwaInstall from "@/lib/usePwaInstall";
-import { LAUNCH_APP_URL } from "@/lib/links";
+import { LAUNCH_APP_URL, INSTALL_APP_URL } from "@/lib/links";
 
 const MICRO = ["Free to use", "Runs in your browser", "Installable as a PWA"];
 
 export default function CTA() {
-  const install = usePwaInstall();
-
   return (
     <section className="relative py-24 lg:py-32">
       <div className="container-page">
@@ -43,16 +40,16 @@ export default function CTA() {
                   <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Button>
               </a>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={install}
-                className="h-12 w-full rounded-full border-background/25 bg-transparent px-8 text-[15px] text-background hover:bg-background/10 hover:text-background sm:w-auto"
-                data-testid="cta-install"
-              >
-                <MonitorDown className="mr-1.5 h-4 w-4" />
-                Install as PWA
-              </Button>
+              <a href={INSTALL_APP_URL} target="_blank" rel="noopener noreferrer" data-testid="cta-install">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="h-12 w-full rounded-full border-background/25 bg-transparent px-8 text-[15px] text-background hover:bg-background/10 hover:text-background sm:w-auto"
+                >
+                  <MonitorDown className="mr-1.5 h-4 w-4" />
+                  Install ZenTime
+                </Button>
+              </a>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">

@@ -5,7 +5,6 @@ import {
   MonitorDown,
   Apple,
   Check,
-  ArrowRight,
   ArrowUpRight,
   UserPlus,
   CalendarSync,
@@ -19,8 +18,7 @@ import AppMockup from "@/components/mockups/AppMockup";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import CTA from "@/pages/landing/CTA";
-import usePwaInstall from "@/lib/usePwaInstall";
-import { LAUNCH_APP_URL } from "@/lib/links";
+import { LAUNCH_APP_URL, INSTALL_APP_URL } from "@/lib/links";
 
 const BROWSER_STEPS = [
   { name: "Chrome", steps: "Click the install icon in the address bar \u2192 Install." },
@@ -57,8 +55,6 @@ const ROADMAP = [
 ];
 
 export default function Download() {
-  const install = usePwaInstall();
-
   return (
     <div data-testid="download-page" className="grain relative">
       {/* Hero */}
@@ -99,16 +95,16 @@ export default function Download() {
                     <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Button>
                 </a>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={install}
-                  className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto"
-                  data-testid="download-hero-install"
-                >
-                  <DownloadIcon className="mr-1 h-4 w-4" />
-                  Install as PWA
-                </Button>
+                <a href={INSTALL_APP_URL} target="_blank" rel="noopener noreferrer" data-testid="download-hero-install">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto"
+                  >
+                    <DownloadIcon className="mr-1 h-4 w-4" />
+                    Install ZenTime
+                  </Button>
+                </a>
               </motion.div>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -183,9 +179,11 @@ export default function Download() {
                     </p>
                   ))}
                 </div>
-                <Button onClick={install} variant="secondary" className="mt-7 h-11 w-full rounded-full" data-testid="platform-pwa-cta">
-                  <DownloadIcon className="mr-1 h-4 w-4" /> Install as App
-                </Button>
+                <a href={INSTALL_APP_URL} target="_blank" rel="noopener noreferrer" className="mt-7" data-testid="platform-pwa-cta">
+                  <Button variant="secondary" className="h-11 w-full rounded-full">
+                    <DownloadIcon className="mr-1 h-4 w-4" /> Install ZenTime
+                  </Button>
+                </a>
               </div>
             </Reveal>
           </div>
