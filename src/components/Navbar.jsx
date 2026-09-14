@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
 import { cn } from "@/lib/utils";
 import { LAUNCH_APP_URL } from "@/lib/links";
@@ -69,7 +68,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <a
             href={LAUNCH_APP_URL}
             target="_blank"
