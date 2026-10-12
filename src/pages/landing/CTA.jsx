@@ -31,7 +31,13 @@ export default function CTA() {
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a href={LAUNCH_APP_URL} target="_blank" rel="noopener noreferrer" data-testid="cta-launch">
+              <a
+                href={LAUNCH_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the ZenTime productivity app"
+                data-testid="cta-launch"
+              >
                 <Button
                   size="lg"
                   className="group h-12 w-full rounded-full bg-primary px-8 text-[15px] text-primary-foreground hover:bg-primary/90 sm:w-auto"

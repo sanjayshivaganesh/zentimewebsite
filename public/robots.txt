@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zentimeproductivity.vercel.app/sitemap.xml

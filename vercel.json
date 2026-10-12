@@ -1,0 +1,17 @@
+{
+  "redirects": [
+    { "source": "/features/", "destination": "/features", "permanent": true },
+    { "source": "/download/", "destination": "/download", "permanent": true },
+    { "source": "/faq/", "destination": "/faq", "permanent": true },
+    { "source": "/privacy/", "destination": "/privacy", "permanent": true },
+    { "source": "/terms/", "destination": "/terms", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/features", "destination": "/index.html" },
+    { "source": "/download", "destination": "/index.html" },
+    { "source": "/faq", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/index.html" },
+    { "source": "/terms", "destination": "/index.html" }
+  ]
+}

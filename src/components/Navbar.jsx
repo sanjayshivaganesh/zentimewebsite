@@ -72,11 +72,12 @@ export default function Navbar() {
             href={LAUNCH_APP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Open the ZenTime productivity app"
             data-testid="nav-launch-app"
             className="hidden sm:inline-flex"
           >
             <Button className="group rounded-full font-medium">
-              Launch App
+              Open ZenTime App
               <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Button>
           </a>
@@ -126,7 +127,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2"
               >
-                <Button className="w-full rounded-full">Launch App</Button>
+                <Button className="w-full rounded-full">Open the ZenTime productivity app</Button>
               </a>
             </div>
           </motion.div>

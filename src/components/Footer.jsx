@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Logo from "@/components/Logo";
-import { CONTACT_EMAIL, GITHUB_URL, DOCS_URL, LAUNCH_APP_URL } from "@/lib/links";
+import { CONTACT_EMAIL, GITHUB_URL, LAUNCH_APP_URL } from "@/lib/links";
 
 const COLUMNS = [
   {
@@ -20,8 +20,7 @@ const COLUMNS = [
   {
     title: "Resources",
     links: [
-      { label: "Documentation", href: DOCS_URL },
-      { label: "Launch App", href: LAUNCH_APP_URL, external: true },
+      { label: "Open the ZenTime productivity app", href: LAUNCH_APP_URL, external: true },
       { label: "GitHub", href: GITHUB_URL, external: true },
     ],
   },
