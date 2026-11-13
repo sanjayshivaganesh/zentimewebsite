@@ -15,10 +15,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AppMockup from "@/components/mockups/AppMockup";
+import BitsBackdrop from "@/components/bits/BitsBackdrop";
+import FolderFloat from "@/components/bits/FolderFloat";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
 import CTA from "@/pages/landing/CTA";
-import { LAUNCH_APP_URL, INSTALL_APP_URL } from "@/lib/links";
+import { LAUNCH_APP_URL, INSTALL_APP_URL, OPEN_APP_LABEL } from "@/lib/links";
 
 const BROWSER_STEPS = [
   { name: "Chrome", steps: "Click the install icon in the address bar \u2192 Install." },
@@ -36,14 +38,14 @@ const BROWSERS = [
 
 const GCAL_STEPS = [
   { icon: Link2, title: "Open Settings", desc: "Head to Settings \u2192 Integrations inside ZenTime." },
-  { icon: ShieldCheck, title: "Authorize Google", desc: "Connect the calendar you already use for fixed commitments." },
+  { icon: ShieldCheck, title: "Authorize Google or Outlook", desc: "Connect the calendar you already use for fixed commitments." },
   { icon: RefreshCw, title: "Fit work around events", desc: "ZenTime uses those events as busy time when building your plan." },
 ];
 
 const START_STEPS = [
   { n: "1", icon: UserPlus, title: "Create your account", desc: "Sign up free in seconds \u2014 no credit card required." },
-  { n: "2", icon: CalendarSync, title: "Add work & commitments", desc: "Capture tasks and connect calendar events ZenTime should respect." },
-  { n: "3", icon: CalendarCheck, title: "Open Today\u2019s Plan", desc: "See what fits today \u2014 then start the next block." },
+  { n: "2", icon: CalendarSync, title: "Add work & commitments", desc: "Tell Zen AI what you need to do, or capture tasks yourself and connect calendar events." },
+  { n: "3", icon: CalendarCheck, title: "Organise and start", desc: "Preview a realistic day, apply it, then start the next block in Focus." },
 ];
 
 const ROADMAP = [
@@ -59,7 +61,8 @@ export default function Download() {
     <div data-testid="download-page" className="grain relative">
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 sm:pt-36 lg:pt-40">
-        <div className="pointer-events-none absolute inset-0 -z-10 grid-backdrop opacity-50" aria-hidden="true" />
+        <BitsBackdrop variant="hero" opacity={0.28} className="-z-10" />
+        <div className="pointer-events-none absolute inset-0 -z-10 grid-backdrop opacity-40" aria-hidden="true" />
         <div className="container-page">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
             <div className="max-w-xl">
@@ -70,9 +73,9 @@ export default function Download() {
                 className="text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
                 data-testid="download-headline"
               >
-                You know what needs to be done.
+                Use ZenTime in the browser
                 <br />
-                <span className="text-primary">Start executing it.</span>
+                <span className="text-primary">or install it on your device.</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -80,8 +83,9 @@ export default function Download() {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg"
               >
-                ZenTime runs as a web app you can use in the browser or install as a Progressive
-                Web App. No native Mac, Windows, iOS or Android apps yet — those are Coming Soon.
+                This page is for installing the product. The ZenTime application is a web app —
+                open it in the browser, or add it as a Progressive Web App. Native Mac, Windows,
+                iOS, or Android apps are Coming Soon, not available to download.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
@@ -91,7 +95,7 @@ export default function Download() {
               >
                 <a href={LAUNCH_APP_URL} target="_blank" rel="noopener noreferrer" data-testid="download-hero-launch">
                   <Button size="lg" className="group h-12 w-full rounded-full px-7 text-[15px] sm:w-auto">
-                    Launch Web App
+                    {OPEN_APP_LABEL}
                     <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Button>
                 </a>
@@ -132,7 +136,7 @@ export default function Download() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Get started"
-            title="Use the web app. Install the PWA if you want."
+            title="Open the app. Install the PWA if you want."
             description="ZenTime is a browser-based product today. Desktop and mobile native apps are Coming Soon — not available to download yet."
           />
 
@@ -153,7 +157,7 @@ export default function Download() {
                 </p>
                 <a href={LAUNCH_APP_URL} target="_blank" rel="noopener noreferrer" className="mt-7" data-testid="platform-web-cta">
                   <Button className="group h-11 w-full rounded-full">
-                    Launch Web App
+                    {OPEN_APP_LABEL}
                     <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Button>
                 </a>
@@ -219,7 +223,7 @@ export default function Download() {
       </section>
 
       {/* Browser support */}
-      <section className="border-y border-border bg-muted/30 py-16 lg:py-20">
+      <section data-band="muted" className="border-y border-border/70 py-16 lg:py-20">
         <div className="container-page">
           <div className="flex flex-col items-center gap-6 text-center">
             <p className="eyebrow">Browser support</p>
@@ -235,7 +239,7 @@ export default function Download() {
               ))}
             </div>
             <div className="mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-              {["Google Calendar", "Offline caching", "Notifications", "Installable PWA"].map((s) => (
+              {["Google Calendar", "Microsoft Outlook", "Offline caching", "Installable PWA"].map((s) => (
                 <span key={s} className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
                   <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} /> {s}
                 </span>
@@ -249,9 +253,9 @@ export default function Download() {
       <section className="py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Google Calendar setup"
-            title="Connect your calendar in three clicks."
-            description="Your calendar shows time you cannot freely use. ZenTime uses that to place work where it can fit."
+            eyebrow="Calendar setup"
+            title="Connect Google Calendar or Outlook."
+            description="Your calendar shows time you cannot freely use. ZenTime treats those events as busy time when it builds Today’s Plan — separate from the task list itself."
           />
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {GCAL_STEPS.map((s, i) => {
@@ -273,10 +277,30 @@ export default function Download() {
       </section>
 
       {/* Getting started */}
-      <section className="border-y border-border bg-muted/30 py-20 lg:py-28">
+      <section data-band="muted" className="border-y border-border/70 py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading eyebrow="Getting started" title="Up and running in three steps." />
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
+          <div className="mt-16 flex justify-center">
+            <FolderFloat
+              label="Your first session"
+              sublabel="Four notes to start"
+              items={["Open the app", "Add a few tasks", "Connect a calendar", "Open Today’s Plan"]}
+              trigger="click"
+              closeOnSelect={false}
+              folderColor="#1c2740"
+              frontColor="#3d5cb8"
+              paperColor="#e8eefc"
+              itemColor="#f4f7ff"
+              itemTextColor="#0f172a"
+              labelColor="#f8fafc"
+              width={210}
+              height={154}
+              spread={160}
+              lift={32}
+              defaultOpen
+            />
+          </div>
+          <div className="mt-28 grid gap-5 md:grid-cols-3">
             {START_STEPS.map((s, i) => {
               const Icon = s.icon;
               return (

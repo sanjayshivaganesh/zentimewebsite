@@ -6,7 +6,7 @@ const ROWS = [
   {
     question: "What do I need to do?",
     others: "Task manager",
-    zentime: "Captured as inputs to the engine",
+    zentime: "Tasks that feed today’s plan",
   },
   {
     question: "When am I busy?",
@@ -21,18 +21,23 @@ const ROWS = [
   {
     question: "What should I do next — and can I start now?",
     others: "You figure it out",
-    zentime: "ZenTime’s core answer",
+    zentime: "The same next task in the plan, Zen AI, and Focus",
+  },
+  {
+    question: "Can I just say what I need done?",
+    others: "A chatbot with no timetable",
+    zentime: "Zen AI talks to your tasks and scheduler",
   },
 ];
 
 export default function Comparison() {
   return (
-    <section className="relative border-y border-border bg-muted/30 py-24 lg:py-32">
+    <section data-band="muted" className="relative border-y border-border/70 py-24 lg:py-32">
       <div className="container-page">
         <SectionHeading
           eyebrow="Why ZenTime is different"
-          title="Planning and execution in one continuous system."
-          description="Other tools answer pieces of the problem. ZenTime connects them so you leave with a plan you can start."
+          title="A list, a calendar, and a timer — connected."
+          description="A task manager, a calendar, a timer, and a chatbot each answer one piece. ZenTime connects them so you can describe the work, organise the day, and start the next block."
         />
 
         <div className="mx-auto mt-16 max-w-4xl space-y-3">
@@ -53,7 +58,7 @@ export default function Comparison() {
                 </span>
                 <span>
                   <span className="font-medium text-foreground/80">{row.others}</span>
-                  {i < 3 ? " — alone" : ""}
+                  {i < 4 ? " — alone" : ""}
                 </span>
               </div>
               <div className="flex items-start gap-2 text-sm text-foreground">

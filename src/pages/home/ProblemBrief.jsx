@@ -13,7 +13,7 @@ const LOAD = [
 
 export default function ProblemBrief() {
   return (
-    <section className="relative py-24 lg:py-28">
+    <section id="problem" className="relative scroll-mt-28 py-24 lg:py-28">
       <div className="container-page">
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="eyebrow justify-center">
@@ -21,13 +21,14 @@ export default function ProblemBrief() {
             The problem
           </span>
           <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Too much to manage.
+            The list keeps growing.
             <br />
-            <span className="text-muted-foreground">Not enough clarity on what to do next.</span>
+            <span className="text-muted-foreground">The day still has a fixed amount of time.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            When school, work and personal projects compete for the same day, recording tasks is easy.
-            Deciding which one to start — and when it realistically fits — is the hard part.
+            When school, projects, and personal commitments compete for the same hours, writing
+            everything down is easy. Turning that list into a plan you can actually start is the
+            hard part — especially when the chatbot, the calendar, and the timer do not share a day.
           </p>
         </Reveal>
 

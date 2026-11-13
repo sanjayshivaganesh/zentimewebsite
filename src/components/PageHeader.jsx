@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
 
 // Reusable header for interior pages. Adds top spacing to clear the fixed navbar.
-export default function PageHeader({ eyebrow, title, description, children }) {
+export default function PageHeader({ id = "overview", eyebrow, title, description, children }) {
   return (
-    <section className="relative overflow-hidden pt-32 sm:pt-36 lg:pt-40">
-      <div className="pointer-events-none absolute inset-0 -z-10 grid-backdrop opacity-50" aria-hidden="true" />
+    <section id={id} className="relative overflow-hidden scroll-mt-28 pt-32 sm:pt-36 lg:pt-40">
+      <div className="pointer-events-none absolute inset-0 -z-10 grid-backdrop opacity-45" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden="true"
+      />
       <div className="container-page">
         <div className="mx-auto max-w-3xl text-center">
           {eyebrow && (

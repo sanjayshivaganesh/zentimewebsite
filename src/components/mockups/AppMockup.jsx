@@ -10,10 +10,12 @@ import {
   Plus,
   Clock,
   Play,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
+  { id: "zen", label: "Zen AI", icon: Sparkles },
   { id: "tasks", label: "Tasks", icon: ListTodo },
   { id: "today", label: "Today's Plan", icon: CalendarRange },
   { id: "timetable", label: "Timetable", icon: LayoutGrid },
@@ -53,6 +55,38 @@ const SLOTS = [
   { day: 3, start: 3, span: 1, label: "Focus", accent: true },
   { day: 4, start: 0, span: 2, label: "Seminar", accent: false },
 ];
+
+function ZenView() {
+  return (
+    <div className="flex h-full flex-col gap-3">
+      <div className="flex items-center gap-2">
+        <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-400 to-indigo-800 text-white">
+          <Sparkles className="h-3.5 w-3.5" />
+        </span>
+        <div>
+          <h4 className="text-sm font-semibold text-foreground">Zen AI</h4>
+          <p className="text-[10px] text-muted-foreground">Works with the scheduler</p>
+        </div>
+      </div>
+      <div className="ml-auto max-w-[90%] rounded-2xl rounded-br-md bg-primary px-3 py-2 text-[12px] leading-relaxed text-primary-foreground">
+        Organise Physics, chemistry revision, and project work around my lecture today.
+      </div>
+      <div className="max-w-[94%] rounded-2xl rounded-bl-md border border-border bg-background/70 px-3 py-2 text-[12px] leading-relaxed text-foreground">
+        Placed around 11:00–13:00 lecture. Physics is next — start it in Focus when you apply the plan.
+      </div>
+      <div className="rounded-xl border border-primary/25 bg-primary/10 p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-primary">Ready to get started?</p>
+        <p className="mt-1 text-[13px] font-medium text-foreground">Physics assignment</p>
+        <p className="text-[11px] text-muted-foreground">09:00 – 11:00</p>
+        <div className="mt-2 flex justify-end">
+          <span className="rounded-full bg-primary px-2.5 py-1 text-[10px] font-semibold text-primary-foreground">
+            Start Physics assignment
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function TasksView() {
   return (
@@ -221,6 +255,7 @@ function TimetableView() {
 }
 
 const VIEWS = {
+  zen: ZenView,
   tasks: TasksView,
   today: TodayView,
   pomodoro: PomodoroView,
@@ -228,7 +263,7 @@ const VIEWS = {
 };
 
 export default function AppMockup({ className = "" }) {
-  const [active, setActive] = useState("today");
+  const [active, setActive] = useState("zen");
   const [autoplay, setAutoplay] = useState(true);
 
   useEffect(() => {

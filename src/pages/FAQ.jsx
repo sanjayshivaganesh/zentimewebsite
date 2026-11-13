@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionItem,
@@ -9,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import CTA from "@/pages/landing/CTA";
-import { CONTACT_EMAIL } from "@/lib/links";
+import { CONTACT_EMAIL, LAUNCH_APP_URL, OPEN_APP_LABEL } from "@/lib/links";
 import { FAQS } from "@/lib/faqData";
 
 export default function FAQ() {
@@ -18,7 +17,7 @@ export default function FAQ() {
       <PageHeader
         eyebrow="FAQ"
         title="Questions, answered."
-        description="Straight answers about what ZenTime is — and what it is not. Still stuck? We're one email away."
+        description="What ZenTime is, how scheduling works, how to install it, and how this website differs from the app. Still stuck? We’re one email away."
       />
 
       <section className="py-20 lg:py-28">
@@ -49,9 +48,9 @@ export default function FAQ() {
                 <a href={`mailto:${CONTACT_EMAIL}`} data-testid="faq-contact">
                   <Button className="h-11 rounded-full px-6">Contact us</Button>
                 </a>
-                <Link to="/download" data-testid="faq-get-started">
-                  <Button variant="outline" className="h-11 rounded-full px-6">Get Started</Button>
-                </Link>
+                <a href={LAUNCH_APP_URL} target="_blank" rel="noopener noreferrer" data-testid="faq-get-started">
+                  <Button variant="outline" className="h-11 rounded-full px-6">{OPEN_APP_LABEL}</Button>
+                </a>
               </div>
             </div>
           </Reveal>

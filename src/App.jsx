@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Navbar from "@/components/Navbar";
 import SeoHead from "@/components/SeoHead";
 import Footer from "@/components/Footer";
+import PageTint from "@/components/PageTint";
 import Home from "@/pages/Home";
 import Features from "@/pages/Features";
 import Download from "@/pages/Download";
@@ -18,7 +19,8 @@ function App() {
     <BrowserRouter>
       <SeoHead />
       <ScrollToTop />
-      <div className="relative min-h-screen bg-background text-foreground">
+      <div className="relative min-h-screen text-foreground">
+        <PageTint />
         <Navbar />
         <main>
           <Routes>

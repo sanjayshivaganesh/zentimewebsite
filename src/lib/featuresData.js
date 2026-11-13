@@ -7,19 +7,18 @@ import {
 } from "lucide-react";
 
 // Single source of truth for feature content (used by Home preview + Features page).
-// Structured around the execution journey — not a generic feature checklist.
 export const FEATURES = [
   {
     id: "tasks",
     icon: ListTodo,
-    eyebrow: "Capture",
-    title: "Everything starts with what you need to do.",
-    short: "Add tasks with priorities, projects, deadlines, durations and dependencies.",
-    desc: "Capture homework, projects, exams, applications and personal work in one place. Priorities, projects, deadlines, estimated durations and dependencies give ZenTime the information it needs to build a realistic plan — the task system feeds the execution engine, not the other way around.",
+    eyebrow: "Tasks",
+    title: "Everything you need to get done, in one place.",
+    short: "Tasks, deadlines, priorities, subtasks, and dependencies — also creatable through Zen AI.",
+    desc: "Homework, projects, exams, applications, and personal work live in one list. Priorities, deadlines, estimated durations, and dependencies give the scheduler enough to build a realistic day. Zen AI can create and update that same list in natural language; the tasks it captures are ordinary workspace tasks, not a separate chat memory.",
     points: ["Projects & priorities", "Deadlines & durations", "Dependencies between tasks", "Completion state"],
     shot: {
       caption: "Tasks",
-      purpose: "Capture everything that needs to get done.",
+      purpose: "The list of work you need to do — before it is placed into a day.",
       url: "app.zentime.app/tasks",
       wireframe: "tasks",
       src: "/screenshots/tasks.png",
@@ -29,13 +28,13 @@ export const FEATURES = [
     id: "today",
     icon: CalendarCheck,
     eyebrow: "Today's Plan",
-    title: "ZenTime turns your workload into today's executable plan.",
-    short: "Open Today’s Plan and see the work that is actually scheduled for today.",
-    desc: "Today’s Plan is not a checklist. It is your daily execution view — current work, upcoming tasks, commitments, breaks and remaining work — drawn from the same schedule as your weekly timetable. The question it answers: what should you work on today?",
-    points: ["Current & upcoming work", "Scheduled execution blocks", "Commitments & breaks", "Remaining work for the day"],
+    title: "See what actually fits today — not everything you wish would.",
+    short: "Open Today’s Plan to see the work scheduled for this day, in order.",
+    desc: "Today’s Plan is your daily timetable, not another checklist. It shows current work, upcoming blocks, commitments, and breaks drawn from the same schedule as the week view. The question it answers is practical: what should you work on now, and what still fits later today?",
+    points: ["Current & upcoming work", "Scheduled blocks", "Commitments & breaks", "Remaining work for the day"],
     shot: {
       caption: "Today's Plan",
-      purpose: "Turn your workload into today’s executable plan.",
+      purpose: "A realistic timetable for today, built from your tasks and commitments.",
       url: "app.zentime.app/today",
       wireframe: "today",
       src: "/screenshots/todays-plan.jpg",
@@ -45,13 +44,13 @@ export const FEATURES = [
     id: "timetable",
     icon: LayoutGrid,
     eyebrow: "Weekly Timetable",
-    title: "See how your entire week fits together.",
-    short: "Fixed commitments, Google Calendar events, scheduled tasks and breaks in one week view.",
-    desc: "The timetable is the broader view of your execution plan. ZenTime places work around school, meetings, gym, sleep and Google Calendar events — so you see how everything you need to accomplish fits into the week, instead of dragging blocks onto a blank calendar.",
-    points: ["Fixed commitments", "Scheduled task blocks", "Google Calendar events", "Breaks & available time"],
+    title: "Your day, intelligently organised.",
+    short: "Zen AI can request a plan; the scheduler places work around real commitments.",
+    desc: "The weekly timetable is the wider view of the same plan. ZenTime places work around school, meetings, and events from Google Calendar or Outlook. When you ask Zen AI to organise a day, it sends constraints to that engine — it does not invent blocks in the chat. You preview significant changes before they apply.",
+    points: ["Fixed commitments", "Scheduled task blocks", "Google Calendar & Outlook events", "Breaks & available time"],
     shot: {
       caption: "Weekly Timetable",
-      purpose: "See how work fits around commitments and calendar events.",
+      purpose: "The week view: tasks placed around calendar events and other commitments.",
       url: "app.zentime.app/timetable",
       wireframe: "timetable",
       src: "/screenshots/timetable.jpg",
@@ -61,13 +60,13 @@ export const FEATURES = [
     id: "focus",
     icon: Timer,
     eyebrow: "Focus & Pomodoro",
-    title: "When it’s time, start immediately.",
-    short: "Go from a scheduled task straight into a focus session — then mark it complete.",
-    desc: "Planning does not stop when the schedule is created. From a scheduled block, start a focus session or Pomodoro, do the work, and complete the task. ZenTime bridges the gap between knowing what to do and actually doing it.",
+    title: "Stop planning. Start working.",
+    short: "Start Focus from Today’s Plan, a timetable block, or a Zen AI Start card.",
+    desc: "After a plan is applied, Zen AI can offer to start the next scheduled task in Focus Workspace — the same next action Autopilot uses on the timetable. Pomodoro and other timing modes stay inside that workspace, with the session linked to the block you meant to do.",
     points: ["Scheduled task → Start Focus", "Pomodoro sessions", "Stay with the current block", "Complete when finished"],
     shot: {
       caption: "Focus & Pomodoro",
-      purpose: "Connect planning directly to execution.",
+      purpose: "A focus timer started from the block on your plan — not a separate app.",
       url: "app.zentime.app/focus",
       wireframe: "pomodoro",
       src: "/screenshots/pomodoro.jpg",
@@ -76,17 +75,16 @@ export const FEATURES = [
   {
     id: "stats",
     icon: BarChart3,
-    eyebrow: "Execution history",
-    title: "See what you’ve actually accomplished.",
-    short: "Completion and focus history so finished work becomes a record of execution.",
-    desc: "ZenTime retains information about completed work and focus sessions — so you can see completion history, time spent and momentum over time. Finished work does not disappear; it becomes part of your execution record.",
+    eyebrow: "Insights",
+    title: "Understand how you actually work.",
+    short: "Completion and focus history so finished work stays visible.",
+    desc: "ZenTime keeps a record of completed tasks and focus sessions so you can see focus time, streaks, and where the week actually went. Zen AI can summarise that history when you ask — it does not invent scores. More detailed analytics are planned for Pro and labeled Coming Soon.",
     points: ["Completion history", "Focus time", "Time by project", "Weekly momentum"],
     shot: {
-      caption: "Statistics",
-      purpose: "Understand what you’ve actually accomplished.",
+      caption: "Insights",
+      purpose: "Focus time, completed work, and how your week actually went.",
       url: "app.zentime.app/stats",
       wireframe: "stats",
-      // Two complementary views of the same Insights page.
       src: ["/screenshots/stats-1.jpg", "/screenshots/stats-2.jpg"],
       srcAlts: [
         "ZenTime Insights overview — focus time, streak, sessions and peak hours",
@@ -96,12 +94,12 @@ export const FEATURES = [
   },
 ];
 
-/** Ordered gallery for the “From Plan to Execution” story. */
+/** Ordered gallery for the “from list to a finished day” story. */
 export const GALLERY = [
   {
     id: "gallery-tasks",
     caption: "Tasks",
-    purpose: "Dump your workload into ZenTime.",
+    purpose: "Capture the work you need to do in one place.",
     url: "app.zentime.app/tasks",
     wireframe: "tasks",
     src: "/screenshots/tasks.png",
@@ -109,7 +107,7 @@ export const GALLERY = [
   {
     id: "gallery-today",
     caption: "Today's Plan",
-    purpose: "ZenTime turns it into today’s plan.",
+    purpose: "A realistic timetable for today, not another unchecked list.",
     url: "app.zentime.app/today",
     wireframe: "today",
     src: "/screenshots/todays-plan.jpg",
@@ -117,15 +115,15 @@ export const GALLERY = [
   {
     id: "gallery-timetable",
     caption: "Weekly Timetable",
-    purpose: "See how it fits into your week — including calendar events.",
+    purpose: "See tasks placed around calendar events and other commitments.",
     url: "app.zentime.app/timetable",
     wireframe: "timetable",
     src: "/screenshots/timetable.jpg",
   },
   {
     id: "gallery-pomodoro",
-    caption: "Pomodoro",
-    purpose: "When the time comes, start and actually do the work.",
+    caption: "Focus & Pomodoro",
+    purpose: "Start a focus session from the next block on your plan.",
     url: "app.zentime.app/focus",
     wireframe: "pomodoro",
     src: "/screenshots/pomodoro.jpg",
@@ -133,7 +131,7 @@ export const GALLERY = [
   {
     id: "gallery-stats-overview",
     caption: "Insights",
-    purpose: "Focus time, streak and rhythm at a glance.",
+    purpose: "Focus time, streak, and rhythm at a glance.",
     url: "app.zentime.app/stats",
     wireframe: "stats",
     src: "/screenshots/stats-1.jpg",

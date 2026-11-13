@@ -29,7 +29,7 @@ const SECTIONS = [
   {
     heading: "Third-Party Services",
     body: [
-      "ZenTime integrates with services such as Google Calendar. Your use of those services is also governed by their respective terms and policies.",
+      "ZenTime integrates with services such as Google Calendar and Microsoft Outlook. Your use of those services is also governed by their respective terms and policies.",
     ],
   },
   {
@@ -57,7 +57,7 @@ export default function Terms() {
       eyebrow="Legal"
       title="Terms of Service"
       intro="The rules for using ZenTime."
-      lastUpdated="December 2025"
+      lastUpdated="October 2026"
       sections={SECTIONS}
     />
   );

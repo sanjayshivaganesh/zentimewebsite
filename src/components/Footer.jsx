@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Logo from "@/components/Logo";
-import { CONTACT_EMAIL, GITHUB_URL, LAUNCH_APP_URL } from "@/lib/links";
+import { CONTACT_EMAIL, GITHUB_URL, LAUNCH_APP_URL, OPEN_APP_LABEL } from "@/lib/links";
 
 const COLUMNS = [
   {
@@ -13,14 +13,15 @@ const COLUMNS = [
     links: [
       { label: "Home", href: "/" },
       { label: "Features", href: "/features" },
-      { label: "Download", href: "/download" },
+      { label: "Zen AI", href: "/#zen-ai" },
+      { label: "Install", href: "/download" },
       { label: "FAQ", href: "/faq" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Open the ZenTime productivity app", href: LAUNCH_APP_URL, external: true },
+      { label: OPEN_APP_LABEL, href: LAUNCH_APP_URL, external: true },
       { label: "GitHub", href: GITHUB_URL, external: true },
     ],
   },
@@ -48,18 +49,18 @@ export default function Footer() {
   };
 
   return (
-    <footer data-testid="footer" className="relative border-t border-border bg-muted/30">
+    <footer data-testid="footer" data-band="muted" className="relative border-t border-border/70">
       <div className="container-page py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_2fr]">
           <div className="max-w-sm">
             <Logo testId="footer-logo" />
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-              A productivity and execution system that turns your tasks, commitments
-              and available time into a plan you can start.
+              ZenTime helps you turn intentions into organised work and organised work into action.
+              Built by a student. Your time, intentionally spent.
             </p>
 
             <form onSubmit={onSubscribe} className="mt-7" data-testid="newsletter-form" noValidate>
-              <label className="eyebrow mb-3 block">Join the waitlist</label>
+              <label className="eyebrow mb-3 block">Product updates</label>
               <div className="flex max-w-sm items-center gap-2">
                 <Input
                   type="email"
@@ -111,7 +112,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 sm:flex-row sm:items-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} ZenTime. Crafted for people who execute.
+            &copy; {new Date().getFullYear()} ZenTime. A student-founded productivity app.
           </p>
           <div className="flex items-center gap-3">
             <a

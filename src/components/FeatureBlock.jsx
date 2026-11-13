@@ -19,7 +19,7 @@ export default function FeatureBlock({ feature, index }) {
   const shots = shotList(feature.shot);
 
   return (
-    <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <div id={feature.id} className="grid scroll-mt-28 items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <motion.div
         initial={{ opacity: 0, x: reversed ? 24 : -24 }}
         whileInView={{ opacity: 1, x: 0 }}

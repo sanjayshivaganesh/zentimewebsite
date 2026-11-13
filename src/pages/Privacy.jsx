@@ -5,7 +5,7 @@ const SECTIONS = [
   {
     heading: "Overview",
     body: [
-      "ZenTime is designed to help you plan and execute your work. We collect the minimum data needed to make the product function and never sell your personal information.",
+      "ZenTime is designed to help you plan your day and do the work. We collect the minimum data needed to make the product function and never sell your personal information.",
     ],
   },
   {
@@ -13,20 +13,20 @@ const SECTIONS = [
     body: [
       "Account information such as your name and email address when you sign up.",
       "Content you create in ZenTime, including tasks, projects, commitments and focus sessions.",
-      "Calendar data you explicitly authorize us to access via Google Calendar, used solely to build and sync your plan.",
+      "Calendar data you explicitly authorize us to access via Google Calendar or Microsoft Outlook, used solely to build and sync your plan.",
     ],
   },
   {
     heading: "How We Use Your Information",
     body: [
-      "To provide, maintain and improve ZenTime, build your execution plans, and use authorized calendar data as scheduling context.",
+      "To provide, maintain and improve ZenTime, build your daily plan, and use authorized calendar data as scheduling context.",
       "To communicate important service updates. We do not use your task or calendar content for advertising.",
     ],
   },
   {
-    heading: "Google Calendar Data",
+    heading: "Calendar Data",
     body: [
-      "When you connect Google Calendar, ZenTime accesses your events only to display and schedule them within your workspace. You can disconnect at any time, which revokes that access.",
+      "When you connect Google Calendar or Microsoft Outlook, ZenTime accesses your events only to display them and treat them as busy time in your plan. You can disconnect at any time, which revokes that access.",
     ],
   },
   {
@@ -54,7 +54,7 @@ export default function Privacy() {
       eyebrow="Legal"
       title="Privacy Policy"
       intro="How ZenTime collects, uses and protects your information."
-      lastUpdated="December 2025"
+      lastUpdated="October 2026"
       sections={SECTIONS}
     />
   );

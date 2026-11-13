@@ -12,7 +12,7 @@ const STEPS = [
 
 export default function ExecuteBridge() {
   return (
-    <section className="relative border-y border-border bg-muted/30 py-24 lg:py-32">
+    <section data-band="muted" className="relative border-y border-border/70 py-24 lg:py-32">
       <div className="container-page">
         <SectionHeading
           eyebrow="Execute"
@@ -23,7 +23,7 @@ export default function ExecuteBridge() {
               <span className="text-muted-foreground">to focus — without switching systems.</span>
             </>
           }
-          description="Planning does not stop when the schedule is created. ZenTime connects the block on your plan to the session where you actually work."
+          description="A timetable only helps if you can act on it. After Zen AI applies a plan, a Start card can open Focus Workspace on the next scheduled task — the same handoff as Today’s Plan."
         />
 
         <div className="mt-14 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-2">
@@ -49,7 +49,7 @@ export default function ExecuteBridge() {
             alt="ZenTime Focus session with Pomodoro timer"
             url="app.zentime.app/focus"
             caption="Focus & Pomodoro"
-            purpose="Connect planning directly to execution."
+            purpose="A Pomodoro or focus session started from the block on your plan."
             wireframe="pomodoro"
             testId="execute-bridge-shot"
           />

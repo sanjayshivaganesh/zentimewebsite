@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
+import GlassSurface from "@/components/bits/GlassSurface";
+import GooeyNav from "@/components/bits/GooeyNav";
 import { cn } from "@/lib/utils";
-import { LAUNCH_APP_URL } from "@/lib/links";
+import { LAUNCH_APP_URL, OPEN_APP_LABEL } from "@/lib/links";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "Features", to: "/features" },
-  { label: "Download", to: "/download" },
+  { label: "Install", to: "/download" },
   { label: "FAQ", to: "/faq" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeIndex = NAV_LINKS.findIndex((link) =>
+    link.to === "/" ? location.pathname === "/" : location.pathname.startsWith(link.to)
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -32,65 +39,70 @@ export default function Navbar() {
     );
 
   return (
-    <header
-      data-testid="navbar"
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-border/70 bg-background/70 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="container-page flex h-16 items-center justify-between gap-4">
-        <Logo />
+    <header data-testid="navbar" className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-6">
+      <GlassSurface
+        width="100%"
+        height={70}
+        borderRadius={32}
+        backgroundOpacity={scrolled ? 0.18 : 0.1}
+        displace={0.5}
+        distortionScale={-180}
+        renderer="svg"
+        className="glass-surface--nav mx-auto max-w-7xl"
+      >
+        <nav className="grid h-full w-full grid-cols-[1fr_auto_1fr] items-center gap-3 px-1">
+          <div className="justify-self-start">
+            <Logo />
+          </div>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
-              className={linkClass}
-              data-testid={`nav-${link.label.toLowerCase()}`}
+          <div className="hidden md:block" data-testid="nav-links">
+            <GooeyNav
+              items={NAV_LINKS.map((link) => ({ label: link.label }))}
+              activeIndex={activeIndex}
+              onChange={(index) => navigate(NAV_LINKS[index].to)}
+              theme="dark"
+              color="#c7d2fe"
+              activeTextColor="#0b1220"
+              colors={["#8aa4ff", "#c7d2fe", "#a78bfa"]}
+              size="sm"
+              frame={false}
+              particleCount={12}
+              spread={40}
+              animationTime={520}
+              gooeyness={0.55}
+              wobble={0.45}
+              hoverEffect
+            />
+          </div>
+
+          <div className="flex items-center justify-self-end gap-2">
+            <Button
+              asChild
+              size="sm"
+              className="group hidden h-8 rounded-full px-3.5 text-[13px] font-medium shadow-none sm:inline-flex"
             >
-              {({ isActive }) => (
-                <span className="relative">
-                  {link.label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 right-0 mx-auto h-0.5 w-5 rounded-full bg-primary"
-                    />
-                  )}
-                </span>
-              )}
-            </NavLink>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          <a
-            href={LAUNCH_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the ZenTime productivity app"
-            data-testid="nav-launch-app"
-            className="hidden sm:inline-flex"
-          >
-            <Button className="group rounded-full font-medium">
-              Open ZenTime App
-              <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <a
+                href={LAUNCH_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={OPEN_APP_LABEL}
+                data-testid="nav-launch-app"
+              >
+                {OPEN_APP_LABEL}
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
             </Button>
-          </a>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground md:hidden"
-            aria-label="Toggle menu"
-            data-testid="mobile-menu-toggle"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </nav>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full text-foreground md:hidden"
+              aria-label="Toggle menu"
+              data-testid="mobile-menu-toggle"
+            >
+              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
+          </div>
+        </nav>
+      </GlassSurface>
 
       <AnimatePresence>
         {open && (
@@ -99,7 +111,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-border bg-background/95 backdrop-blur-xl md:hidden"
+            className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-2xl border border-border bg-background/95 backdrop-blur-xl md:hidden"
             data-testid="mobile-menu"
           >
             <div className="container-page flex flex-col gap-1 py-4">
@@ -127,7 +139,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2"
               >
-                <Button className="w-full rounded-full">Open the ZenTime productivity app</Button>
+                <Button className="w-full rounded-full">{OPEN_APP_LABEL}</Button>
               </a>
             </div>
           </motion.div>

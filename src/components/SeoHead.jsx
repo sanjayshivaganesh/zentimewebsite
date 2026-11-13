@@ -3,27 +3,27 @@ import { useLocation } from "react-router-dom";
 import { MARKETING_SITE_URL } from "@/lib/links";
 
 const DEFAULT_DESCRIPTION =
-  "ZenTime is a productivity and task-scheduling app that turns your tasks, commitments, and calendar into a daily plan you can start.";
+  "ZenTime helps you turn intentions into organised work and organised work into action. Zen AI, a priority-based scheduler, and Focus Workspace in one productivity app.";
 
 const PAGES = {
   "/": {
-    title: "ZenTime — Productivity and Task-Scheduling App",
+    title: "ZenTime — From what you need to do to getting it done",
     description: DEFAULT_DESCRIPTION,
   },
   "/features": {
-    title: "Features — ZenTime Productivity App",
+    title: "Features — Zen AI, planning, and focus in ZenTime",
     description:
-      "See how ZenTime captures tasks, builds today’s plan, fits work around your week, and starts focus sessions from the schedule.",
+      "See how Zen AI works with ZenTime tasks, the daily timetable, calendar commitments, Pomodoro focus, and productivity insights.",
   },
   "/download": {
-    title: "Install ZenTime — Productivity App",
+    title: "Install ZenTime — Productivity app",
     description:
-      "Use ZenTime in your browser or install it as a Progressive Web App. Open the productivity app to start planning and executing work.",
+      "Open the ZenTime web app in your browser or install it as a Progressive Web App for daily planning and time management.",
   },
   "/faq": {
-    title: "FAQ — ZenTime Productivity App",
+    title: "FAQ — ZenTime productivity app",
     description:
-      "Answers about ZenTime’s free plan, Google Calendar, task scheduling, Pomodoro focus, and how the execution system works.",
+      "Answers about ZenTime, Zen AI, priority-based scheduling, Google Calendar and Outlook, installing the PWA, privacy, and how this site differs from the app.",
   },
   "/privacy": {
     title: "Privacy Policy — ZenTime",

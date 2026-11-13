@@ -4,7 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 
 const FLOW = [
   { icon: Inbox, label: "Capture", desc: "Add everything that needs doing." },
-  { icon: Brain, label: "Understand", desc: "ZenTime reads constraints & context." },
+  { icon: Brain, label: "Understand", desc: "Uses deadlines, priorities, and busy time." },
   { icon: ArrowUpNarrowWide, label: "Prioritize", desc: "Urgent, important and dependent work first." },
   { icon: CalendarClock, label: "Schedule", desc: "Work lands in real time blocks." },
   { icon: Focus, label: "Focus", desc: "Start a session from the plan." },
@@ -20,12 +20,12 @@ export default function Solution() {
           eyebrow="The ZenTime solution"
           title={
             <>
-              Do not just organize work.
+              One place for tasks, commitments,
               <br />
-              <span className="text-muted-foreground">Execute it.</span>
+              <span className="text-muted-foreground">and the work of the day.</span>
             </>
           }
-          description="Put everything into ZenTime. It figures out how it fits around your real life. You get a plan, you know what to work on, and you can start immediately."
+          description="Tell Zen AI what you need to do, or capture it yourself. Connect the calendar you already use. ZenTime builds a priority-based schedule around fixed commitments, then lets you start a focus session from the next block."
         />
 
         <div className="mt-16 lg:mt-20">
